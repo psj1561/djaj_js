@@ -9,7 +9,6 @@ export default async function handler(request, response){
     let body = JSON.parse(request.body)
     body.author = session.user.email
     body.parent = new ObjectId(body.parent)
-    console.log(body)
     
     if(request.method == 'POST'){
         if (request.body.comment == ''){

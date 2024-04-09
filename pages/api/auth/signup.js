@@ -1,7 +1,7 @@
 import clientPromise from "@/util/mongodb";
 import bcrypt from 'bcrypt'
 
-// 회원가입 처리(임시)
+// 회원가입
 export default async function handler(request, response){
     if(request.method == 'POST'){
         // 아이디, 패스워드 빈칸 확인

@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter} from "next/font/google";
 import "./globals.css";
 
 import Link from "next/link";
@@ -7,6 +7,8 @@ import { authOptions } from "../pages/api/auth/[...nextauth]";
 
 import LoginBtn from "./loginbutton"
 import LogOutBtn from "./logoutbutton"
+import { cookies } from "next/headers";
+import Darkmode from "./darkmode"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,16 +22,22 @@ export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions)
   console.log((session))
 
+  // cookie값 가져오기
+  let res = cookies().get('mode')
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={
+        res != undefined && res.value == 'dark' ? 'dark-mode' : ''}>
       <div className="navbar">
         <Link href="/" className="logo">Appleforum</Link>
         <Link href="/list">List</Link>
         <Link href="/write">Write</Link>
         {// 로그인, 로그아웃상태에 따라 상태창 변경
-          session? <div><h3>{session.user?.name}님</h3> <LogOutBtn></LogOutBtn></div> : <LoginBtn /> 
+          session? 
+          <span>{session.user?.name}님 <LogOutBtn></LogOutBtn></span>
+          : <LoginBtn /> 
         }
+        <Darkmode res={res}></Darkmode>
       </div>
         {children}
       </body>
