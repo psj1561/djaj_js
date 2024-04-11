@@ -20,7 +20,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   // autoO 로그인 정보 받아오기
   let session = await getServerSession(authOptions)
-  console.log((session))
+  //console.log((session))
 
   // cookie값 가져오기
   let res = cookies().get('mode')
