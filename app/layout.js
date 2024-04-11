@@ -7,8 +7,8 @@ import { authOptions } from "../pages/api/auth/[...nextauth]";
 
 import LoginBtn from "./loginbutton"
 import LogOutBtn from "./logoutbutton"
+import Darkmode from "./darkMode"
 import { cookies } from "next/headers";
-import Darkmode from "./darkmode"
 
 const inter = Inter({ subsets: ["latin"] });
 
