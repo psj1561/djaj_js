@@ -2,8 +2,12 @@
 
 import {signOut} from 'next-auth/react'
 
+import Button from 'react-bootstrap/Button';
+
 export default function LogOutBtn(){
     return(
-        <button onClick={()=>{signOut()}}>로그아웃</button>
+        
+        <Button onClick={()=>{signOut()}} variant="secondary" className='ms-4'>LogOut</Button>
+        
     )
 }

@@ -1,4 +1,4 @@
-body{
+/* body{
   margin: 0;
 }
 
@@ -64,6 +64,7 @@ a {
 .detail{
   background: #f7f7f7;
 }
+*/
 
 .dark-mode .navbar{
   background: #222;
@@ -71,4 +72,4 @@ a {
 
 .dark-mode .navbar a {
   color :white;
-}
+} 
